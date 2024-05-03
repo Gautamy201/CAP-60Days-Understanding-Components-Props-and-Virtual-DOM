@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic List Rendering</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your ItemList component code will go here
+      function Gallery() {
+        return (
+          <>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: `repeat(4,auto)`,
+                gap: "30px",
+                justifyContent: "center",
+              }}
+            >
+              <Image imageUrl={"images/chola.jpg"} imageAlt={"chola"} />
+              <Image imageUrl={"images/maggi.jpg"} imageAlt={"maggi"} />
+              <Image imageUrl={"images/puri.jpg"} imageAlt={"puri"} />
+              <Image imageUrl={"images/momo.jpg"} imageAlt={"momo"} />
+              <Image imageUrl={"images/samosa.jpg"} imageAlt={"samosa"} />
+            </div>
+          </>
+        );
+      }
+      function Image({ imageUrl, imageAlt }) {
+        return (
+          <>
+            <div
+              style={{
+                border: "2px solid black",
+                height: "300px",
+                borderRadius: "10px",
+                overflow: "hidden",
+              }}
+            >
+              <img src={imageUrl} alt={imageAlt} width="300px" height="300px" />
+            </div>
+          </>
+        );
+      }
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<Gallery />);
+    </script>
+  </body>
+</html>
